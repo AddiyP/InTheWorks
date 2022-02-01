@@ -30,28 +30,10 @@ def DBTest():
     return str(all)
 
 if __name__ == "__main__":
-    #db.create_all()
-    #admin = User(id=50400, name="adaadadadadadadadadd", age="234226")
-    #guest = User(id=6000, name="Patwdwewerich", age="483")
-    #db.session.add(admin)
-    #db.session.add(guest)
-    #db.session.commit()
     app.run(debug=True)
     
-
-
 #Username: zkukfDYFBH
 #Database name: zkukfDYFBH
 #Password: UU1CktdOHK
 #Server: remotemysql.com
 #Port: 3306
-
-
-#class User(db.Model):
- #   id = db.Column(db.Integer, primary_key=True)
- #   name = db.Column(db.String(80), unique=True, nullable=False)
- #   age = db.Column(db.Integer, unique=True, nullable=False)
-  #  #varchar(100)
-    #age #int(11)
-  #  def __repr__(self):
-   #     return "User"
