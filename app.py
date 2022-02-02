@@ -28,7 +28,7 @@ def main():
 @app.route("/DBTest")
 def DBTest():
     all = user.query.all()
-    return str(all)
+    return "<p>" + str(all) + "</p>" + "<p><a href=\"/\">Back to main</a></p>"
 
 @app.route("/Signup")
 def SignupPage():
