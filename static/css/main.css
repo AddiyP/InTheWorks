@@ -1,3 +1,8 @@
 body {
     background-color: firebrick;
 }
+
+#map {
+    height: 600px;
+    width: 600px;
+}

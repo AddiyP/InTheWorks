@@ -1,6 +1,6 @@
 from flask import Flask as fl
 import flask
-from flask import render_template
+from flask import render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 def initDatabase(app):
@@ -44,6 +44,11 @@ def SignupSubmit():
     db.session.commit()
 
     return flask.redirect(flask.url_for("main"))
+
+@app.route("/EventSignUp", methods=['GET'])
+def EventSignUp():
+    eventID = request.args["eventID"]
+    return str(eventID)
 
 if __name__ == "__main__":
     db = initDatabase(app)
