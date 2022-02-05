@@ -1,3 +1,4 @@
 window.onload = () => {
-    console.log("Script Running")
+    console.log(userID);
+    sessionStorage.setItem("userID", userID);
 }
