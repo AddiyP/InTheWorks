@@ -120,13 +120,26 @@ html,body,.container-fluid, .row {
  background: #888;
 }
 #nav_event {
-    margin: 5%;
-    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 90%;  
+    padding: 10px; 
+}
+#nav_event:hover {
+    background-color: whitesmoke;
+    border-radius: 25px;
 }
 #event_description {
     margin: 0px 5px 0px 5px;
 }
-
+#about-us {
+    float: right;
+    margin: 0px 15px 0px 15px;
+    padding: 10px 15px 10px 15px;
+    background-color: white;
+    border-radius: 30px;
+    pointer-events:all;
+}
 
 
 

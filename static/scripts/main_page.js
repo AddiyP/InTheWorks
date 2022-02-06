@@ -52,11 +52,12 @@ function handle_sign_up(event) {
     requestArgs.username = sign_up_form.username.value;
     requestArgs.email = sign_up_form.email.value;
     console.log(requestArgs);
+    //document.body.style.cursor = "wait";
     //Post request. headers field ensures body is parsed as json
     fetch("/sign_up_handle", {method : "POST", body: JSON.stringify(requestArgs), headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then(response => response.json())
     .then(json => {
-        console.log(json["error"])
+        console.log(json["error"]);
         if (json["error"] === "false") {
             sessionStorage.setItem("user_id", json["user_id"]);
             sessionStorage.setItem("username", json["username"]);
@@ -66,6 +67,8 @@ function handle_sign_up(event) {
             console.log(json.error_message);
             document.querySelector("#sign_up_error").textContent = json["error_message"];
         }
+    }).catch(error => {
+        document.body.style.cursor = "normal";
     });
 }
 function handle_sign_in(event) {
@@ -197,13 +200,18 @@ function template_pop_up(event) {
     `;
 }
 function template_nav_block(event) {
+    var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </svg>`;
     return `
     <div id="nav_event">
+    
     <h6>${event["name"]}<small> by ${event["creator_name"]}</small></h6>
     <p id="event_description"><small>${event["description"]} -
-    <a href="#">${event["num_interest"]}</a> are interested. <a href="#" onclick=\"handle_user_interest(${parseInt(event["event_id"])})\">Express your interest.</a></small>
+    <a href="#">${event["num_interest"]}</a> are interested.</small>
     </p>
-    </div>
+    <a href="#"onclick=\"handle_user_interest(${parseInt(event["event_id"])})\">${icon}</a>
+    </div><hr>
     `;
 }
 function query_to_map() {
@@ -228,7 +236,9 @@ function query_to_map() {
             var newEntry = document.createElement("div");
             newEntry.innerHTML = template_nav_block(curr_event);
             navbar_events_holder.appendChild(newEntry);
-        }
+                }
+    }).catch(error => {
+        console.log("error")
     });
 }
 window.onload = function() {
