@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="/static/scripts/main_page.js"></script>
+        <link rel="stylesheet" href="/static/css/main_page.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid" id="map-layer-container">
+            <div class="row" id="map-layer-row">
+                <div class="col-3 no-float">
+                    <h1 style="text-align: center">{OURSITE}</h1>
+                    <div class="overflow-auto"  id="event_block_holder">
+                    </div>
+                </div>
+                <div class="col no-float">
+                    <div id="map"></div>
+                    <div id="map-shadow">
+                        <div id="button-bar"> <div id="refresh_map">Refresh Map</div><div id="sign_in_button">Sign In</div></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--Sign up Modal Block-->
+        <div id="sign_up_block" class="modal">
+            <div class="modal-content">
+                <span class="close" id="sign_up_close">&times;</span>
+                <h3 style="text-align:center">Sign up here</h3>
+                <form id="sign_up_form">
+                    <label for="username">Username:</label>
+                    <input name="username" class="form-control"></input>
+                    <label for="email">Email:</label>
+                    <input name="email" class="form-control"></input><br>
+                    <button type="submit" class="btn btn-light">Sign Up</button>
+                </form>
+                <p style="color: red" id="sign_up_error"></p>
+            </div>
+        </div>
+        <!--Sign in Modal Block-->
+        <div id="sign_in_block" class="modal">
+            <div class="modal-content">
+                <span class="close" id="sign_in_close">&times;</span>
+                <h3 style="text-align:center">Sign in here</h3>
+                <form id="sign_in_form">
+                    <label for="username">Username:</label>
+                    <input name="username" class="form-control"></input> <br>
+                    <button type="submit" class="btn btn-light">Sign In</button>
+                </form>
+                <p style="color: red" id="sign_in_error"></p>
+                <p> Or, &nbsp <a id="sign_up_button" href="#"> sign up</a>.</p>
+            </div>
+        </div>
+        <!--Event Modal Block-->
+        <div id="create_event_block" class="modal">
+            <div class="modal-content">
+                <span class="close" id="create_event_close">&times;</span>
+                <h3 style="text-align:center">Create Event</h3>
+                <form id="create_event_form">
+                    <label for="name">Event name:</label>
+                    <input name="name" class="form-control"> </input>
+                    <label for="description">Event description:</label>
+                    <input name="description" class="form-control"></input>
+                    <button type="submit" class="btn btn-light">Submit</button>
+                </form>
+                <p style="color: red" id="create_event_error">error</p>
+            </div>
+        </div>
+        <!--Right Click Context Menu-->
+        <div class="dropdown-menu dropdown-menu-sm" id="custom_context_menu" style="display:none">
+            <a class="dropdown-item" id="create_event_button" href="#">New event at location<a>
+        </div>
+    </body>
+</html>

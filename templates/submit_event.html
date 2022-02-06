@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Main Page</title>
-        <script src="/static/scripts/main.js"></script>
+        <script src="/static/scripts/submit_event.js"></script>
         <link rel="stylesheet" href="/static/css/main.css">
     </head>
     <body>
         <h1>This is the test form page</h1>
         <form method="post" action="EventSubmit">
+            <input name="creatorId" type = "hidden" id="creatorId"></input>
             <label for="name">Event Name</label>
             <input name="name" type="text"></input>
             <label for="description">Description</label>
