@@ -47,12 +47,14 @@ html,body,.container-fluid, .row {
     float: right;
     margin: 0px 50px 0px 0px;
     padding: 10px 15px 10px 15px;
-    background-color: white;
+    background-color: orange;
+    color: white;
     border-radius: 30px;
     pointer-events:all;
 }
 #sign_in_button:hover {
-    color: grey;
+    background-color: white;
+    color: black;
     cursor: default;
 }
 #refresh_map {
@@ -111,7 +113,7 @@ html,body,.container-fluid, .row {
     cursor: pointer;
 }
 #event_block_holder {
-    height: 90%;
+    height: 80%;
 }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;

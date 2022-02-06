@@ -196,7 +196,6 @@ function template_pop_up(event) {
     <a href="#">${event["num_interest"]}</a> are interested. <a href="#" onclick=\"handle_user_interest(${parseInt(event["event_id"])})\">Express your interest.</a>
     </p>
     </div>
-    
     `;
 }
 function template_nav_block(event) {
